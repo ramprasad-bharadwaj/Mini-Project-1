@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block title %}Ticket{% endblock title %}
+
+<link type="text/css" href="styles.css">
+{% block body %}
+    <div id = "download_ticket">
+
+  <div><center><h1>Bookings</h1></center></div>
+  <div class="col-md-12">
+    <div class="table-responsive">
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <th>REG NO</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Distance</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Vehicle ID</th>
+        <th>Driver ID</th>
+        <th>Guide ID</th>
+        {% comment %} <th>Edit</th> {% endcomment %}
+        {% comment %} <th>Delete</th> {% endcomment %}
+    </thead>
+    <tbody>
+    {% for ticket in tickets %}  
+        <tr>  
+        <td>{{ ticket.ticket_reg_no }}</td>  
+        <td>{{ ticket.from_place }}</td>
+        <td>{{ ticket.to_place }}</td>
+        <td>{{ ticket.distance }}</td> 
+        <td>{{ ticket.sdate }}</td>  
+        <td>{{ ticket.edate }}</td>  
+        <td>{{ ticket.veh_reg_no_id }}</td>   
+        <td>{{ ticket.dri_id_id }}</td>  
+        <td>{{ ticket.gui_id_id }}</td>    
+        {% comment %} <td><a href="/edittickets/{{ticket.ticket_reg_no}}" class="btn btn-primary">Edit</a></td> {% endcomment %}
+        {% comment %} <td><a href="/remtickets/{{ticket.ticket_reg_no}}" class="btn btn-danger">Delete</a></td>   {% endcomment %}
+        </tr>  
+        <input type="hidden" name="next" value="{{ request.path }}">
+    {% endfor %} 
+    </tbody>
+    </table>
+    <br><br><br>
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+        <thead>
+            <th>ID</th>
+            <th>Ticket ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            {% comment %} <th>Edit</th> {% endcomment %}
+            {% comment %} <th>Delete</th> {% endcomment %}
+        </thead>
+        <tbody>
+        {% for customer in customers %}  
+            <tr>  
+            <td>{{ customer.id }}</td>  
+            <td>{{ customer.ticket_reg_no_id }}</td>
+            <td>{{ customer.fname }}</td>
+            <td>{{ customer.lname }}</td> 
+            <td>{{ customer.age }}</td>  
+            <td>{{ customer.gender }}</td>  
+            <td>{{ customer.address }}</td>    
+            {% comment %} <td><a href="/editcustomers/{{customer.id}}" class="btn btn-primary">Edit</a></td> {% endcomment %}
+            {% comment %} <td><a href="/remcustomers/{{customer.id}}" class="btn btn-danger">Delete</a></td>   {% endcomment %}
+            </tr>  
+            <input type="hidden" name="next" value="{{ request.path }}">
+        {% endfor %} 
+        </tbody>
+        </table>
+    </div>
+</div>
+<div style = "float:right; margin:5%;">
+    <div><center>This is electronically generated ticket,<br> doesn't need any kind of signature for authentication </center></div>
+    <center><h2>PRSV Travels</h2></center>
+</div>
+</div>
+<script>
+    window.onload = function() {
+        {% comment %} document.getElementById("download_ticket").click(); {% endcomment %}
+        window.print();
+    };
+</script>
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <button onclick="download()"><center>Download</center></button>
+<script type="text/javascript">
+    function download() {
+        var a = document.body.appendChild(
+           document.createElement("a")
+        );
+       a.download = "newfile.html";
+       a.href = "data:text/html," + document.getElementById("download_ticket").innerHTML;
+       a.click(); //Trigger a click on the element
+    }
+</script> {% endcomment %}
+
+
+{% comment %} <script>
+    // (A) LOAD HTML2PDF LIBRARY FROM CDN
+    // [4](https://cdnjs.com/libraries/html2pdf.js)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    // (B) DEFINE A FUNCTION TO CONVERT HTML TO PDF
+    function htmlToPdf () {
+      // (B1) GET THE HTML ELEMENT TO CONVERT
+      // You can use document.body to convert the entire page
+      // Or use document.getElementById("some-id") to convert a specific element
+      let element = document.body;
+    
+      // (B2) SET SOME OPTIONS FOR THE PDF FILE
+      // You can customize the margin, filename, image quality, etc.
+      let options = {
+        margin: 1,
+        filename: "download.pdf",
+        image: {
+          type: "jpeg",
+          quality: 0.8
+        },
+        enableLinks: true,
+        jsPDF: {
+          format: "A4",
+          orientation: "portrait"
+        }
+      };
+    
+      // (B3) USE HTML2PDF TO CREATE AND DOWNLOAD THE PDF FILE
+      html2pdf()
+        .set(options)
+        .from(element)
+        .save();
+    }
+    
+    // (C) CALL THE FUNCTION WHEN THE PAGE LOADS
+    // You can use window.onload or document.addEventListener("DOMContentLoaded", ...)
+    window.onload = function () {
+      htmlToPdf();
+    };
+    
+    </script>
+ {% endcomment %}

@@ -1,0 +1,31 @@
+{% extends "base2.html" %}
+{% block title %}Admin{% endblock title %}
+{% block body %}
+  <div><center><h1>Vehicles</h1></center></div>
+  <div class="col-md-12">
+    <span><a href="addvehicles" class="btn btn-primary">Add New Record</a></span> <br><br> 
+    <div class="table-responsive">
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <th>Registration No</th>
+        <th>Name</th>
+        <th>AC</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+    {% for vehicle in vehicles %}  
+        <tr>  
+        <td>{{ vehicle.reg_no }}</td>  
+        <td>{{ vehicle.name }}</td>
+        <td>{{ vehicle.ac }}</td>    
+        <td><a href="/editvehicles/{{vehicle.reg_no}}" class="btn btn-primary">Edit</a></td>
+        <td><a href="/remvehicles/{{vehicle.reg_no}}" class="btn btn-danger">Delete</a></td>  
+        </tr>  
+        <input type="hidden" name="next" value="{{ request.path }}">
+    {% endfor %} 
+    </tbody>
+    </table>
+    </div>
+</div>
+{% endblock body %}

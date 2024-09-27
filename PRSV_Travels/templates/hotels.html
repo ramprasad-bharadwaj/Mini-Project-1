@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Hotels{% endblock title %}
+{% block body %}
+{% comment %} <div id="hotel_container" class="row" style="margin: 5px;"></div> {% endcomment %}
+
+<div class="container">
+  <div class="row">
+    {% for hotel in hotels %}
+      <div class="col-sm-4">
+        <div class="card" style="margin-top: 20px;">
+          <img src="/static/{{hotel.place_name}}.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hotel {{hotel.name}}</h5>
+            <p class="card-text"><span>ID: h{{hotel.id_hotel}}</span><br>
+              <span>Place: {{hotel.place_name}}</span><br>
+              <span>State: {{hotel.state}}</span><br>
+              <span>Pin: {{hotel.pin}}</span><br>
+              <span>Price: {{hotel.price}}</span><br></p>
+              
+            <a href="/booking" class="btn btn-primary">Stay here!</a>
+          </div>
+        </div>
+      </div> 
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+{% comment %} let hotels = ["Hotel 1", "Hotel 2", "Hotel 3"];
+let hotel_desc = ["Book Here 1", "Book Here 2", "Book Here 3"];
+let hotel_con = document.getElementById('hotel_container');
+
+if(hotel_con){
+    for (let i = hotels.length - 1; i >= 0; i--) {
+        let fetch = hotel_con.innerHTML;
+        hotel_con.innerHTML = `<div class="card col-sm-3" style="margin: 55px;">
+        <img src="/static/ .jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${hotels[i]}</h5>
+          <p class="card-text">${hotel_desc[i]}</p>
+          <a href="#" class="btn btn-primary">Stay here!</a>
+        </div>
+      </div>`+fetch; 
+    }
+} {% endcomment %}
+
+{% endblock body %}

@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+{% block title %}Admin{% endblock title %}
+{% block body %}
+<form method="POST" class="post-form" action="addcaptainstodb"> 
+  {% csrf_token %}  
+  <div class="container">   
+      <div class="col-12">  
+          <br><h3>Captains</h3><br>
+      </div> 
+      <div class="mb-3"> 
+          <label>ID</label>  
+          <input type="number" class="form-control" name="id"/>    
+      </div> 
+      <div class="mb-3"> 
+          <label>Name:</label>  
+          <input type="text" class="form-control" name="name" />  
+      </div> 
+      <div class="mb-3"> 
+          <label>Age:</label>  
+          <input type="number" class="form-control" name="age"/>  
+      </div> 
+      <div class="mb-3"> 
+        <label>Year of experience:</label>  
+        <input type="number" class="form-control" name="yoe"/>  
+    </div> 
+    <div class="mb-3"> 
+        <label>Price:</label>  
+        <input type="number" class="form-control" name="price"/>  
+    </div> 
+      <div class="mb-3"> 
+          <button type="submit" class="btn btn-success btn-lg">Register</button>  
+      </div> 
+  </div>  
+  </form> 
+{% endblock body %}

@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+  
+{% block title %}Update{% endblock title %}
+  
+
+{% block body %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="updateguides"> 
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <br><h3>Update Details</h3><br>
+        </div>
+        <div class="mb-3"> 
+            <label>ID</label>  
+            <input type="number" class="form-control" name="id" value="{{ guides.id }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Name:</label>  
+            <input type="text" class="form-control" name="name" value="{{ guides.name }}"/>  
+        </div> 
+        <div class="mb-3"> 
+            <label>Age:</label>  
+            <input type="number" class="form-control" name="age" value="{{ guides.age }}"/>  
+        </div> 
+        <div class="mb-3"> 
+          <label>Year of experience:</label>  
+          <input type="number" class="form-control" name="yoe" value="{{ guides.yoe }}"/>  
+      </div> 
+      <div class="mb-3"> 
+          <label>Price:</label>  
+          <input type="number" class="form-control" name="price" value="{{ guides.price }}"/>  
+      </div>
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock body %}   

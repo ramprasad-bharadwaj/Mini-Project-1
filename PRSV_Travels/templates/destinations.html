@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block favicon-link %}/static/BADAMI.jpeg{% endblock favicon-link %}
+{% block title %}Destinations{% endblock title %}
+{% block body %}
+
+
+{% comment %} <div id="dest_container" class="row" style="margin: 5px; "></div> {% endcomment %}
+
+<div class="container">
+  <div class="row">
+    {% for place in places %}
+      <div class="col-sm-4">
+        <div class="card" style="margin-top: 20px;">
+          <img src="/static/{{place.place_name}}.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{place.place_name}}</h5>
+            <p class="card-text">
+              <span>State: {{place.state}}</span><br>
+              <span>Pin: {{place.pin}}</span></p>
+            <a href="/booking" class="btn btn-primary">Let's gooo!</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% comment %} 
+let titlearray = ["BADAMI", "COORG", "MYSORE", "GOKARNA","NAGARHOLE"];
+let descarray = ["Place 1", "Place 2","Place 3", "Place 4", "Place 5"];
+let dynamic = document.getElementById('dest_container');
+
+if(dynamic){
+    for (let i = titlearray.length - 1; i >= 0; i--) {
+        let fetch = dynamic.innerHTML;
+        dynamic.innerHTML = `<div class="card col-sm-3" style="margin:55px;">
+        <img src="/static/${titlearray[i]}.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${titlearray[i]}</h5>
+          <p class="card-text">${descarray[i]}</p>
+          <a href="#" class="btn btn-primary">Book a ticket now!</a>
+        </div>
+      </div>`+fetch; 
+    }
+} {% endcomment %}
+
+{% endblock body %}

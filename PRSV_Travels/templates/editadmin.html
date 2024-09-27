@@ -1,0 +1,31 @@
+{% extends "base2.html" %}
+  
+{% block title %}Update{% endblock title %}
+  
+
+{% block body %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="updateadmin"> 
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <br><h3>Update Details</h3><br>
+        </div> 
+        <div class="mb-3"> 
+            <label>Admin ID:</label>  
+            <input type="text" class="form-control" name="uid" value="{{ admins.uid }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Userame:</label>  
+            <input type="text" class="form-control" name="username" value="{{ admins.username }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Password:</label>  
+            <input type="" class="form-control" name="password" value="{{ admins.password }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock body %}   

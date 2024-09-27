@@ -1,0 +1,138 @@
+// Index page
+
+
+
+// Destinations page
+let titlearray = ["BADAMI", "COORG", "MYSORE", "GOKARNA","NAGARHOLE"];
+let descarray = ["Place 1", "Place 2","Place 3", "Place 4", "Place 5"];
+let dynamic = document.getElementById('dest_container');
+
+if(dynamic){
+    for (let i = titlearray.length - 1; i >= 0; i--) {
+        let fetch = dynamic.innerHTML;
+        dynamic.innerHTML = `<div class="card col-sm-3" style="margin:55px;">
+        <img src="/static/${titlearray[i]}.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${titlearray[i]}</h5>
+          <p class="card-text">${descarray[i]}</p>
+          <a href="#" class="btn btn-primary">Book a ticket now!</a>
+        </div>
+      </div>`+fetch; 
+    }
+}
+
+
+
+// Captions page
+
+let captions = ["Murthi", "Govind", "Smith"];
+let cap_desc = ["Safest driver out there", "At Your Service!", "Let's Head Out"];
+let cap = document.getElementById('cap_container');
+
+if(cap){
+    for (let i = captions.length - 1; i >= 0; i--) {
+        let fetch = cap.innerHTML;
+        cap.innerHTML = `<div class="card col-sm-3" style="margin: 55px;">
+        <img src="/static/ .jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${captions[i]}</h5>
+          <p class="card-text">${cap_desc[i]}</p>
+          <a href="#" class="btn btn-primary">Drive with me!</a>
+        </div>
+      </div>`+fetch; 
+    }
+}
+
+
+
+// Guides page
+let guides = ["Carl", "Mukkesh", "Rohit"];
+let guide_desc = ["Dive deep into past with me", "Know about the past with me", "Let's explore!"];
+let guide_con = document.getElementById('guide_container');
+
+if(guide_con){
+    for (let i = guides.length - 1; i >= 0; i--) {
+        let fetch = guide_con.innerHTML;
+        guide_con.innerHTML = `<div class="card col-sm-3" style="margin: 55px;">
+        <img src="/static/ .jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${guides[i]}</h5>
+          <p class="card-text">${guide_desc[i]}</p>
+          <a href="#" class="btn btn-primary">Explore with me!</a>
+        </div>
+      </div>`+fetch; 
+    }
+}
+
+//hotels
+let hotels = ["Hotel 1", "Hotel 2", "Hotel 3"];
+let hotel_desc = ["Book Here 1", "Book Here 2", "Book Here 3"];
+let hotel_con = document.getElementById('hotel_container');
+
+if(hotel_con){
+    for (let i = hotels.length - 1; i >= 0; i--) {
+        let fetch = hotel_con.innerHTML;
+        hotel_con.innerHTML = `<div class="card col-sm-3" style="margin: 55px;">
+        <img src="/static/ .jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${hotels[i]}</h5>
+          <p class="card-text">${hotel_desc[i]}</p>
+          <a href="#" class="btn btn-primary">Stay here!</a>
+        </div>
+      </div>`+fetch; 
+    }
+}
+
+
+
+// Booking page
+let drivers = ["Driver1", "Driver2", "Driver3", "Driver4"]
+let driver = document.getElementById('formcaptain');
+
+if(driver){
+  driver.innerHTML = '<option selected>Select your captain!</option>'
+  for (let i = drivers.length - 1; i >= 0; i--) {
+    let fetch = driver.innerHTML;
+    driver.innerHTML = `<option value="${drivers[i]}">${drivers[i]}</option><br>`+fetch; 
+}
+}
+
+let formdest = document.getElementById('formdestinations');
+
+if(formdest){
+  formdest.innerHTML = '<option selected>Pick your Destination with us!</option>'
+  for (let i = titlearray.length - 1; i >= 0; i--) {
+    let fetch = formdest.innerHTML;
+    formdest.innerHTML = `<option value="${titlearray[i]}">${titlearray[i]}</option><br>`+fetch; 
+}
+}
+
+let formhotel = document.getElementById('formhotels');
+
+if(formhotel){
+  formhotel.innerHTML = '<option selected>Pick your place to stay!</option>'
+  for (let i = hotels.length - 1; i >= 0; i--) {
+    let fetch = formhotel.innerHTML;
+    formhotel.innerHTML = `<option value="${hotels[i]}">${hotels[i]}</option><br>`+fetch; 
+}
+}
+
+
+let formguide = document.getElementById('formguides');
+
+if(formguide){
+  formguide.innerHTML = '<option selected>Pick your guide!</option>'
+  for (let i = guides.length - 1; i >= 0; i--) {
+    let fetch = formguide.innerHTML;
+    formguide.innerHTML = `<option value="${guides[i]}">${guides[i]}</option><br>`+fetch; 
+}
+}
+
+
+
+
+
+// Admin-login page
+
+
+

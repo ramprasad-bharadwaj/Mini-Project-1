@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+{% block title %}Admin{% endblock title %}
+{% block body %}
+  <div><center><h1>Guides</h1></center></div>
+  <div class="col-md-12">
+    <span><a href="addguides" class="btn btn-primary">Add New Record</a></span> <br><br> 
+    <div class="table-responsive">
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Year of Experience</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+    {% for guide in guides %}  
+        <tr>  
+        <td>{{ guide.id }}</td>  
+        <td>{{ guide.name }}</td>
+        <td>{{ guide.age }}</td> 
+        <td>{{ guide.yoe }}</td>  
+        <td>{{ guide.price }}</td>     
+        <td><a href="/editguides/{{guide.id}}" class="btn btn-primary">Edit</a></td>
+        <td><a href="/remguides/{{guide.id}}" class="btn btn-danger">Delete</a></td>  
+        </tr>  
+        <input type="hidden" name="next" value="{{ request.path }}">
+    {% endfor %} 
+    </tbody>
+    </table>
+    </div>
+</div>
+{% endblock body %}

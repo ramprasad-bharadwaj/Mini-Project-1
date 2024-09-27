@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+  
+{% block title %}Update{% endblock title %}
+  
+
+{% block body %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="updatehotels"> 
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <br><h3>Update Details</h3><br>
+        </div> 
+        <div class="mb-3"> 
+            <label>Hotel ID</label>  
+            <input type="number" class="form-control" name="id_hotel" value="{{ hotels.id_hotel }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Hotel Name:</label>  
+            <input type="text" class="form-control" name="name" value="{{ hotels.name }}"/>  
+        </div> 
+        <div class="mb-3"> 
+            <label>Pin:</label>  
+            <select class="" aria-label="" name = "pin" value="{{ hotels.pin }}">
+              {% for place in places %}
+              <option value="{{place.pin}}" name = "pin">{{place.pin}}</option>
+              {% endfor %}
+          </select> 
+        </div> 
+        <div class="mb-3"> 
+          <label>Price:</label>  
+          <input type="number" class="form-control" name="price" value="{{ hotels.price }}"/>  
+        </div> 
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock body %}   

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block favicon-link %}/static/BADAMI.jpeg{% endblock favicon-link %}
+{% block title %}Captains{% endblock title %}
+{% block body %}
+
+
+
+<div class="container">
+  <div class="row">
+    {% for driver in captains %}
+      <div class="col-sm-4">
+        <div class="card" style="margin-top: 20px;">
+          <img src="/static/man-avatar.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{driver.name}}</h5>
+            <p class="card-text"><span>ID: D{{driver.id}}</span><br>
+              <span>Age: {{driver.age}}</span><br>
+              <span>Experience: {{driver.yoe}} years</span><br>
+              <span>Price: {{driver.price}} per day</span></p>
+            <a href="/booking" class="btn btn-primary">Drive with me!</a>
+          </div>
+        </div>
+      </div> 
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+{% comment %} 
+<script>
+
+let captions = ["Murthi", "Govind", "Smith"];
+let cap_desc = ["Safest driver out there", "At Your Service!", "Let's Head Out"];
+let cap = document.getElementById('cap_container');
+
+if(cap){
+    for (let i = captions.length - 1; i >= 0; i--) {
+        let fetch = cap.innerHTML;
+        cap.innerHTML = `<div class="card col-sm-3" style="margin: 55px;">
+        <img src="/static/ .jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${captions[i]}</h5>
+          <p class="card-text">${cap_desc[i]}</p>
+          <a href="#" class="btn btn-primary">Drive with me!</a>
+        </div>
+      </div>`+fetch; 
+    }
+} 
+</script>
+
+{% endcomment %}
+
+
+{% endblock body %}

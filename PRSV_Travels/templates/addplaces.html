@@ -1,0 +1,27 @@
+{% extends "base2.html" %}
+{% block title %}Admin{% endblock title %}
+{% block body %}
+<form method="POST" class="post-form" action="addplacestodb"> 
+  {% csrf_token %}  
+  <div class="container">   
+      <div class="col-12">  
+          <br><h3>Destinations</h3><br>
+      </div> 
+      <div class="mb-3"> 
+          <label>PIN</label>  
+          <input type="text" class="form-control" name="pin"/>    
+      </div> 
+      <div class="mb-3"> 
+          <label>Place Name:</label>  
+          <input type="text" class="form-control" name="place_name" />  
+      </div> 
+      <div class="mb-3"> 
+          <label>State:</label>  
+          <input type="text" class="form-control" name="state"/>  
+      </div> 
+      <div class="mb-3"> 
+          <button type="submit" class="btn btn-success btn-lg">Register</button>  
+      </div> 
+  </div>  
+  </form> 
+{% endblock body %}

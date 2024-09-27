@@ -1,0 +1,60 @@
+{% extends "base2.html" %}
+{% block title %}Admin{% endblock title %}
+{% block body %}
+<form method="POST" class="post-form" action="addadmintodb"> 
+  {% csrf_token %}  
+  <div class="container">   
+      <div class="col-12">  
+          <br><h3>Admins</h3><br>
+      </div> 
+      <div class="mb-3"> 
+          <label>Admin ID:</label>  
+          <input type="text" class="form-control" name="uid"/>    
+      </div> 
+      <div class="mb-3"> 
+          <label>Userame:</label>  
+          <input type="text" class="form-control" name="username" />  
+      </div> 
+      <div class="mb-3"> 
+          <label>Password:</label>  
+          <input type="text" class="form-control" name="password"/>  
+      </div> 
+      <div class="mb-3"> 
+          <button type="submit" class="btn btn-success btn-lg">Register</button>  
+      </div> 
+  </div>  
+  </form> 
+{% endblock body %}
+
+
+{% comment %} <form action="" method="post">
+    {% csrf_token %}
+    <h1 style="margin: 30px">Admin login</h1>
+    <div style="margin: 50px">
+        <label for="username">User name: </label>
+      <input type="text" name="adminusername" id="uname" />
+      <br /><br />
+      <label for="password"> Password: </label>
+     <input type="text" name="adminpassword" id="upass" />
+    </div>
+    <button type="submit" name="adminreg" class="btn btn-primary">Submit</button>
+  </form> {% endcomment %}
+
+  
+  {% comment %} <center>
+    <form action="addadmintodb" method="post">
+        {% csrf_token %}
+        <pre>
+            <h1>Admins</h1>
+
+            uid = <input type="number" name="uid" id="">
+
+            Username: <input type="text" name="username" id="">
+
+            Password: <input type="text" name="password" id="">
+
+            <input type="submit" value="Register">
+
+        </pre>
+    </form>
+</center> {% endcomment %}

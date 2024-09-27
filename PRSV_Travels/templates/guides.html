@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block favicon-link %}/static/BADAMI.jpeg{% endblock favicon-link %}
+{% block title %}Guides{% endblock title %}
+{% block body %}
+
+{% comment %} <div id="guide_container" class="row" style="margin: 5px;"></div> {% endcomment %}
+
+
+<div class="container">
+  <div class="row">
+    {% for guide in guides %}
+      <div class="col-sm-4">
+        <div class="card" style="margin-top: 20px;">
+          <img src="/static/man-avatar.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{guide.name}}</h5>
+            <p class="card-text">
+              <span>ID: G{{guide.id}}</span><br>
+              <span>Age: {{guide.age}}</span><br>
+              <span>Experience: {{guide.yoe}} years</span><br>
+              <span>Price: {{guide.price}} per each destination</span></p>
+            <a href="/booking" class="btn btn-primary">Explore with me!</a>
+          </div>
+        </div>
+      </div> 
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% comment %} 
+
+let guides = ["Carl", "Mukkesh", "Rohit"];
+let guide_desc = ["Dive deep into past with me", "Know about the past with me", "Let's explore!"];
+let guide_con = document.getElementById('guide_container');
+
+if(guide_con){
+    for (let i = guides.length - 1; i >= 0; i--) {
+        let fetch = guide_con.innerHTML;
+        guide_con.innerHTML = `<div class="card col-sm-3" style="margin: 55px;">
+        <img src="/static/ .jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${guides[i]}</h5>
+          <p class="card-text">${guide_desc[i]}</p>
+          <a href="#" class="btn btn-primary">Explore with me!</a>
+        </div>
+      </div>`+fetch; 
+    }
+} {% endcomment %}
+
+{% endblock body %}
